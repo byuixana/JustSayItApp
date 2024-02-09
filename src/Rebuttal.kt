@@ -1,10 +1,7 @@
-
-import Post
-
 class Rebuttal
-   (title: String, wordCount: Int, postDate: String, user : User, sources:List<String>, text : List<String>, originalPost : Post):
-   Post(title, wordCount, postDate, user, sources, text) {
-      var _originalPost = originalPost
+   (title: String, wordCount: Int, postDate: String, user : String, sources: String, text : String, originalPost : Post):
+   Post(title, postDate, user, sources, text) {
+   var _originalPost = originalPost
    fun displayRebuttal()
    {
       println(_title)
@@ -15,7 +12,7 @@ class Rebuttal
       println(_text)
       println(_originalPost)
    }
-   }
-    //Put variable for originalPost
-    //
-//}
+}
+
+
+

@@ -1,16 +1,31 @@
-public open class Post
-    (title: String, wordCount: Int, postDate: String, user : User, sources:List<String>, text: List<String>) {
+public open class Post(title: String, postDate: String, user: String, sources: String, text: String) {
     var _title: String = title;
-    var _wordCount: Int = wordCount;
-    var _user: User = user;
+    var _user: String = user;
     var _postDate: String = postDate;
-    var _sources: List<String> = sources;
-    var _text: List<String> = text;
+    var _sources: String = sources;
+    var _text: String = text;
+    var _wordCount : Int = 0;
 
+
+    fun countWords() : Int{
+        /*
+        Counts the words within a string of text the user provides and returns a word count for a post.
+        */
+
+        val textList = _text.split(" ")
+        print(textList)
+        for (word in textList){
+            _wordCount += 1;
+        }
+
+        return _wordCount
+    }
         fun displayPost()
         {
+            /*
+            Displays post details.
+            */
             println(_title)
-            println(_wordCount)
             println(_user)
             println(_postDate)
             println(_sources)
@@ -18,13 +33,7 @@ public open class Post
         }
 
 
-        fun countWords()
-        {
-            //This function is currently empty
-        }
-
-        fun readText()
-        {
+        fun listComments(){
 
         }
 

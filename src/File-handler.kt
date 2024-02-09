@@ -4,15 +4,18 @@ public class FileHandler
     (fileName : String){
         var _fileName: String = fileName;
 
-        fun readFile()
+        fun readFile() : String
         {
+            /*
+            Reads user file
+            */
+            var text : String = ""
             try{
-                val text = File(_fileName).readText()
-                println("File content: \n $text")
+                text = File(_fileName).readText()
             } catch (e: Exception){
                 println("Error reading file!")
             }
-
+            return text
         }
 
         fun writetoFile()

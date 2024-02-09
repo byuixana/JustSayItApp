@@ -1,16 +1,53 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
+    val database = Database()
 
-    val filehandler = FileHandler("src\\liver.txt")
-    filehandler.readFile();
+    var currentUser = User("", mutableListOf(), "", "")
 
-//    val user = User("Alex Rhoday", listOf(), "02/05/24", "fancy like")
-//    user.displayAccountDetails()
-//    val post = Post("Why Penguins Can't Fly", 800, "03/06/24", user, listOf("Wikepedia", "Wikepedia"), listOf("string", "string"))
-//    val rebuttal = Rebuttal("Why Penguins Can Fly", 400, "04/06/24", user, listOf("Wikepedia", "Wikepedia"), listOf("string", "string"), post)
-//    rebuttal.displayRebuttal()
+    var loggedIn : Boolean = false
+
+    while(!loggedIn)
+    {
+        print("Do you need to create an account? (Y/N)")
+//
+        val createAccount = readln()
+//
+        if (createAccount == "Y") {
+            database.createAccount()
+        }
+        else if (createAccount == "N")
+        {
+            currentUser = database.logIn()!!
+            loggedIn = true
+        }
+    }
+
+    var userSessionDone : Boolean = false
+
+    while(!userSessionDone)
+    {
+        val menu = """
+            Select an option
+            1. Create post
+            2. Write rebuttal
+            3. Leave comment
+            5. View your posts
+        """.trimIndent()
+
+        print(">")
+
+        var userSelection = readln()
+
+        if (userSelection == "1"){
+            currentUser.createPost()
+            currentUser.reviewPosts()
+        }
 
 
+
+
+
+    }
 
 }
