@@ -9,7 +9,7 @@ fun main() {
 
     /*Creates empty user*/
 
-    var currentUser = User("", mutableListOf(), "", "")
+    var currentUser = User("", mutableListOf(), mutableListOf(), "", "")
 
     /*Sets the ending and beginning conditions*/
 
@@ -64,7 +64,6 @@ fun main() {
         }
         else if(userSelection == "3"){
             currentUser.reviewPosts()
-
         }
         else{
             userSessionDone = true

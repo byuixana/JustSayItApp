@@ -10,6 +10,7 @@ class Rebuttal
       println(_postDate)
       println(_sources)
       println(_text)
+      println("Word count: $_text")
       println(_originalPost.getTitle())
    }
 

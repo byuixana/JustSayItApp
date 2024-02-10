@@ -2,9 +2,10 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 public class User// Class body
-    (penName: String, posts: MutableList<Post>, joinDate: String, password: String) {
+    (penName: String, posts: MutableList<Post>, rebuttals: MutableList<Rebuttal>, joinDate: String, password: String) {
     private var _penName: String = penName;
     private var _posts: MutableList<Post> = posts;
+    private var _rebuttals : MutableList<Rebuttal> = rebuttals;
     private var _joinDate: String = joinDate;
     private var _password: String = password;
 
@@ -78,6 +79,10 @@ public class User// Class body
 
         val rebuttal = post?.let { Rebuttal(title, formattedDate, _penName, sources, text, it) }
 
+        if (rebuttal != null) {
+            _rebuttals.add(rebuttal)
+        }
+
         return rebuttal
     }
 
@@ -102,6 +107,7 @@ public class User// Class body
         */
         println("Hello, $_penName!")
         println(_posts)
+        println(_rebuttals)
         println(_joinDate)
         println(_password)
     }

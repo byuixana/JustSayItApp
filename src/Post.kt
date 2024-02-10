@@ -30,6 +30,7 @@ public open class Post(title: String, postDate: String, user: String, sources: S
             println(_postDate)
             println(_sources)
             println(_text)
+            println("Word count: $_text")
         }
 
         fun getTitle() : String

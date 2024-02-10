@@ -6,11 +6,15 @@ public open class Database
     val users = mutableSetOf<User>()
     
     fun addPreviousUsers(){
-        users.add(User("Jack12", mutableListOf(Post("An Ode to Emily Dickenson", "2024-2-09", "Jack12", "ChatGPT", "EmilyDickson.txt")), "2023-12-24", "password"))
-        users.add(User("AliceinWonderland", mutableListOf(), "2023-06-15", "123456"))
-        users.add(User("BobtheBuilder", mutableListOf(), "2022-09-30", "qwerty"))
-        users.add(User("EmilyDickens", mutableListOf(), "2024-02-10", "password123"))
-        users.add(User("MichaelJackson", mutableListOf(), "2022-11-28", "abc123"))
+
+        /*
+        Temporary function that loads users to the Set automatically.
+        */
+        users.add(User("Jack12", mutableListOf(Post("Penguins Can Someday Fly", "2024-2-09", "Jack12", "ChatGPT", "PenguinsCanSomedayFly.txt")), mutableListOf(), "2023-12-24", "password"))
+        users.add(User("AliceinWonderland", mutableListOf(), mutableListOf(),"2023-06-15", "123456"))
+        users.add(User("BobtheBuilder", mutableListOf(), mutableListOf(), "2022-09-30", "qwerty"))
+        users.add(User("EmilyDickens", mutableListOf(), mutableListOf(),"2024-02-10", "password123"))
+        users.add(User("MichaelJackson", mutableListOf(), mutableListOf(),"2022-11-28", "abc123"))
     }
 
     fun createAccount(){
@@ -33,7 +37,7 @@ public open class Database
 
         val formattedDate = currentDatetime.format(formatDate)
 
-        val newUser = User(penName, mutableListOf(), formattedDate, password)
+        val newUser = User(penName, mutableListOf(), mutableListOf(), formattedDate, password)
         println(newUser.getPassword())
         users.add(newUser)
 
@@ -51,7 +55,7 @@ public open class Database
 
         val userToFind = users.find { it.getPenName() == userpenName }
 
-        var verifiedUser : User? = User("", mutableListOf(), "", "")
+        var verifiedUser : User? = User("", mutableListOf(), mutableListOf(),"", "")
 
         if (userToFind != null) {
             println(userToFind.getPassword())
