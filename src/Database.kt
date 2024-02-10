@@ -3,7 +3,15 @@ import java.time.format.DateTimeFormatter
 
 public open class Database
     () {
-    val _accountsSet = mutableSetOf<User>()
+    val users = mutableSetOf<User>()
+    
+    fun addPreviousUsers(){
+        users.add(User("Jack12", mutableListOf(Post("An Ode to Emily Dickenson", "2024-2-09", "Jack12", "ChatGPT", "EmilyDickson.txt")), "2023-12-24", "password"))
+        users.add(User("AliceinWonderland", mutableListOf(), "2023-06-15", "123456"))
+        users.add(User("BobtheBuilder", mutableListOf(), "2022-09-30", "qwerty"))
+        users.add(User("EmilyDickens", mutableListOf(), "2024-02-10", "password123"))
+        users.add(User("MichaelJackson", mutableListOf(), "2022-11-28", "abc123"))
+    }
 
     fun createAccount(){
 
@@ -27,7 +35,7 @@ public open class Database
 
         val newUser = User(penName, mutableListOf(), formattedDate, password)
         println(newUser.getPassword())
-        _accountsSet.add(newUser)
+        users.add(newUser)
 
         println("User added!")
     }
@@ -41,7 +49,7 @@ public open class Database
 
         val userpenName = readln();
 
-        val userToFind = _accountsSet.find { it.getPenName() == userpenName }
+        val userToFind = users.find { it.getPenName() == userpenName }
 
         var verifiedUser : User? = User("", mutableListOf(), "", "")
 
@@ -67,8 +75,27 @@ public open class Database
         /*
         A testing function to ensure accounts have been added to the set. Displays user accounts
         */
-        for (user in _accountsSet) {
+        for (user in users) {
             user.displayAccountDetails()
         }
+    }
+
+    fun getOriginalPost(originalPost : String, userpenName : String) : Post?{
+
+        var foundPost : Post? = Post("","","","", "");
+
+        val userToFind = users.find { it.getPenName() == userpenName }
+
+        if (userToFind != null){
+            val posts = userToFind?.getPosts()
+                for (post in posts!!){
+                    if (post.getTitle() == originalPost){
+                        foundPost = post
+                    }
+            }
+        }else{
+            foundPost = null
+        }
+        return foundPost
     }
 }

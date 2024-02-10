@@ -32,15 +32,10 @@ public open class Post(title: String, postDate: String, user: String, sources: S
             println(_text)
         }
 
-
-        fun listComments(){
-
-        }
-
-
-        fun listRebuttals()
+        fun getTitle() : String
         {
-
+            return _title;
         }
+
 
 }

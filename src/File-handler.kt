@@ -11,7 +11,7 @@ public class FileHandler
             */
             var text : String = ""
             try{
-                text = File(_fileName).readText()
+                text = File("src/$_fileName").readText()
             } catch (e: Exception){
                 println("Error reading file!")
             }

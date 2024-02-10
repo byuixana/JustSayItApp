@@ -1,5 +1,5 @@
 class Rebuttal
-   (title: String, wordCount: Int, postDate: String, user : String, sources: String, text : String, originalPost : Post):
+   (title: String, postDate: String, user : String, sources: String, text : String, originalPost : Post):
    Post(title, postDate, user, sources, text) {
    var _originalPost = originalPost
    fun displayRebuttal()
@@ -10,8 +10,10 @@ class Rebuttal
       println(_postDate)
       println(_sources)
       println(_text)
-      println(_originalPost)
+      println(_originalPost.getTitle())
    }
+
+
 }
 
 

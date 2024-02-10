@@ -40,8 +40,45 @@ public class User// Class body
         return post
     }
 
-    fun createRebuttal(){
+    fun createRebuttal(database: Database) : Rebuttal? {
+        /*
+        Creates a rebuttal attached to a specific post a user created.
+        */
+        print("Rebuttal title: ")
 
+        val title = readln()
+
+        print("Post text: ")
+
+        val raw_text = readln()
+
+        val filehandler = FileHandler(raw_text)
+
+        var text = filehandler.readFile()
+
+        print("Post to refute: ")
+
+        var originalPost = readln()
+
+        print("User to refute: ")
+
+        var usertoRefute = readln()
+
+        var post = database.getOriginalPost(originalPost, usertoRefute)
+
+        print("Provide your sources: ")
+
+        val sources = readln();
+
+        val currentDatetime = LocalDateTime.now()
+
+        val formatDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+
+        val formattedDate = currentDatetime.format(formatDate)
+
+        val rebuttal = post?.let { Rebuttal(title, formattedDate, _penName, sources, text, it) }
+
+        return rebuttal
     }
 
     fun createComment(){
@@ -81,6 +118,11 @@ public class User// Class body
         For testing purposes, this returns the password of an account.
         */
         return _password;
+    }
+
+    fun getPosts() : List<Post>
+    {
+        return _posts
     }
 
 }
