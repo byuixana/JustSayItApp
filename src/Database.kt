@@ -38,7 +38,7 @@ public open class Database
         val formattedDate = currentDatetime.format(formatDate)
 
         val newUser = User(penName, mutableListOf(), mutableListOf(), formattedDate, password)
-        println(newUser.getPassword())
+
         users.add(newUser)
 
         println("User added!")
@@ -58,7 +58,6 @@ public open class Database
         var verifiedUser : User? = User("", mutableListOf(), mutableListOf(),"", "")
 
         if (userToFind != null) {
-            println(userToFind.getPassword())
 
             print("Enter your password:")
 

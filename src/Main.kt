@@ -53,17 +53,20 @@ fun main() {
         var userSelection = readln()
 
         if (userSelection == "1"){
-            currentUser.createPost()
-            currentUser.reviewPosts()
+            val post = currentUser.createPost()
+            post.displayPost()
+            println(post.countWords())
         }
         else if (userSelection == "2"){
             var rebuttal = currentUser.createRebuttal(database)
             if (rebuttal != null) {
                 rebuttal.displayRebuttal()
+                println(rebuttal.countWords())
             }
         }
         else if(userSelection == "3"){
             currentUser.reviewPosts()
+
         }
         else{
             userSessionDone = true

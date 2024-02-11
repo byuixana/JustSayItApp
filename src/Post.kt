@@ -13,7 +13,6 @@ public open class Post(title: String, postDate: String, user: String, sources: S
         */
 
         val textList = _text.split(" ")
-        print(textList)
         for (word in textList){
             _wordCount += 1;
         }

@@ -18,10 +18,8 @@ I used Kotlin and certain Java libraries (Java files and Java Datetime) in Intel
 
 # Useful Websites
 
-{Make a list of websites that you found helpful in this project}
-
-- [Web Site Name](http://url.link.goes.here)
-- [Web Site Name](http://url.link.goes.here)
+- [Kotlin Programiz](https://www.programiz.com/kotlin-programming#google_vignette)
+- [ChatGPT](https://chat.openai.com/c/4924fd60-dba8-4a6d-8874-1eab130fdcd0)
 
 # Future Work
 - Make a file that I can save a database to after each user session so I don't have to load them in manually for a demo.

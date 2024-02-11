@@ -98,6 +98,11 @@ public class User// Class body
         for (post in _posts){
             post.displayPost()
         }
+
+        for (rebuttal in _rebuttals)
+        {
+            rebuttal.displayRebuttal()
+        }
     }
 
     fun displayAccountDetails()
